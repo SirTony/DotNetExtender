@@ -1,0 +1,6 @@
+C:\Users\Tony\Documents\Visual Studio 2010\Projects\Extender\Bin\x86\Release\Extender.xml
+C:\Users\Tony\Documents\Visual Studio 2010\Projects\Extender\Bin\x86\Release\Extender.dll
+C:\Users\Tony\Documents\Visual Studio 2010\Projects\Extender\Bin\x86\Release\Extender.pdb
+C:\Users\Tony\Documents\Visual Studio 2010\Projects\Extender\Extender\obj\x86\Release\ResolveAssemblyReference.cache
+C:\Users\Tony\Documents\Visual Studio 2010\Projects\Extender\Extender\obj\x86\Release\Extender.dll
+C:\Users\Tony\Documents\Visual Studio 2010\Projects\Extender\Extender\obj\x86\Release\Extender.pdb

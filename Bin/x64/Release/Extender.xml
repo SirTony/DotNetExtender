@@ -1,0 +1,372 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>DotNetExtender</name>
+    </assembly>
+    <members>
+        <member name="T:System.Drawing.ImageExtensions">
+            <summary>
+            Provides extensions methods to the System.Drawing.Image class.
+            </summary>
+        </member>
+        <member name="M:System.Drawing.ImageExtensions.IsAnimated(System.Drawing.Image)">
+            <summary>
+            Tests whether or not the image contains multiple frames, only for Motion JPEGs and GIFs.
+            </summary>
+            <param name="Source">The image to be tested.</param>
+            <returns>True if the image is animated, false otherwise.</returns>
+        </member>
+        <member name="M:System.Drawing.ImageExtensions.Scale(System.Drawing.Image,System.Drawing.Size)">
+            <summary>
+            Scales the image, maintaining the aspect ratio.
+            </summary>
+            <param name="Source">The image to be scaled.</param>
+            <param name="MaxSize">A System.Drawing.Size struct containing the maximum possible size of the new image.</param>
+            <returns>An Image object containing the resized image.</returns>
+        </member>
+        <member name="M:System.Drawing.ImageExtensions.Scale(System.Drawing.Image,System.Drawing.SizeF)">
+            <summary>
+            Scales the image, maintaining the aspect ratio.
+            </summary>
+            <param name="Source">The image to be scaled.</param>
+            <param name="MaxSize">A System.Drawing.Size struct containing the maximum possible size of the new image.</param>
+            <returns>An Image object containing the resized image.</returns>
+        </member>
+        <member name="M:System.Drawing.ImageExtensions.Scale(System.Drawing.Image,System.Int32,System.Int32)">
+            <summary>
+            Scales the image, maintaining the aspect ratio.
+            </summary>
+            <param name="Source">The image to be scaled.</param>
+            <param name="MaxWidth">The maximum allowable width for the resized image.</param>
+            <param name="MaxHeight">The maximum allowable height for the resized image.</param>
+            <returns>An Image object containing the resized image.</returns>
+        </member>
+        <member name="M:System.Drawing.ImageExtensions.Scale(System.Drawing.Image,System.Single,System.Single)">
+            <summary>
+            Scales the image, maintaining the aspect ratio.
+            </summary>
+            <param name="Source">The image to be scaled.</param>
+            <param name="MaxWidth">The maximum allowable width for the resized image.</param>
+            <param name="MaxHeight">The maximum allowable height for the resized image.</param>
+            <returns>An Image object containing the resized image.</returns>
+        </member>
+        <member name="M:System.Drawing.ImageExtensions.Scale(System.Drawing.Image,System.Int32)">
+            <summary>
+            Scales the image, maintaining the aspect ratio.
+            </summary>
+            <param name="Source">The image to be scaled.</param>
+            <param name="Percent">The percentage by which to scale the image.</param>
+            <returns>An Image object containing the resized image.</returns>
+        </member>
+        <member name="M:System.Drawing.ImageExtensions.Scale(System.Drawing.Image,System.Single)">
+            <summary>
+            Scales the image, maintaining the aspect ratio.
+            </summary>
+            <param name="Source">The image to be scaled.</param>
+            <param name="Ratio">The ratio by which to scale the image.</param>
+            <returns>An Image object containing the resized image.</returns>
+        </member>
+        <member name="M:System.Drawing.ImageExtensions.Resize(System.Drawing.Image,System.Drawing.Size)">
+            <summary>
+            Resizes the image to the specified size, not maintaining aspect ratio.
+            </summary>
+            <param name="Source">The image to be resized.</param>
+            <param name="NewSize">The new size of the image.</param>
+            <returns>The resized image.</returns>
+        </member>
+        <member name="M:System.Drawing.ImageExtensions.Resize(System.Drawing.Image,System.Int32,System.Int32)">
+            <summary>
+            Resizes the image to the specified size, not maintaining aspect ratio.
+            </summary>
+            <param name="Source">The image to be resized.</param>
+            <param name="Width">The new width of the resized image.</param>
+            <param name="Height">The new height of the resized image.</param>
+            <returns>The resized image.</returns>
+        </member>
+        <member name="M:System.Drawing.ImageExtensions.Resize(System.Drawing.Image,System.Drawing.SizeF)">
+            <summary>
+            Resizes the image to the specified size, not maintaining aspect ratio.
+            </summary>
+            <param name="Source">The image to be resized.</param>
+            <param name="NewSize">The new size of the image.</param>
+            <returns>The resized image.</returns>
+        </member>
+        <member name="M:System.Drawing.ImageExtensions.Resize(System.Drawing.Image,System.Single,System.Single)">
+            <summary>
+            Resizes the image to the specified size, not maintaining aspect ratio.
+            </summary>
+            <param name="Source">The image to be resized.</param>
+            <param name="Width">The new width of the resized image.</param>
+            <param name="Height">The new height of the resized image.</param>
+            <returns>The resized image.</returns>
+        </member>
+        <member name="M:System.Drawing.ImageExtensions.Crop(System.Drawing.Image,System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Crops a portion of the image.
+            </summary>
+            <param name="Source">The image to be cropped.</param>
+            <param name="X">The X coordinate to start from.</param>
+            <param name="Y">The Y coordinate to start from.</param>
+            <param name="Width">The width of the cropped area.</param>
+            <param name="Height">The height of the cropped area.</param>
+            <returns>The cropped image.</returns>
+        </member>
+        <member name="M:System.Drawing.ImageExtensions.Crop(System.Drawing.Image,System.Drawing.Point,System.Drawing.Size)">
+            <summary>
+            Crops a portion of the image.
+            </summary>
+            <param name="Source">The image to be cropped.</param>
+            <param name="CropLocation">The location of the area to crop.</param>
+            <param name="CropSize">The size of the area to crop.</param>
+            <returns>The cropped image.</returns>
+        </member>
+        <member name="M:System.Drawing.ImageExtensions.Crop(System.Drawing.Image,System.Drawing.Rectangle)">
+            <summary>
+            Crops a portion of the image.
+            </summary>
+            <param name="Source">The image to be cropped.</param>
+            <param name="CropArea">The area to crop from the original image.</param>
+            <returns>The cropped image.</returns>
+        </member>
+        <member name="M:System.Drawing.ImageExtensions.Crop(System.Drawing.Image,System.Single,System.Single,System.Single,System.Single)">
+            <summary>
+            Crops a portion of the image.
+            </summary>
+            <param name="Source">The image to be cropped.</param>
+            <param name="X">The X coordinate to start from.</param>
+            <param name="Y">The Y coordinate to start from.</param>
+            <param name="Width">The width of the cropped area.</param>
+            <param name="Height">The height of the cropped area.</param>
+            <returns>The cropped image.</returns>
+        </member>
+        <member name="M:System.Drawing.ImageExtensions.Crop(System.Drawing.Image,System.Drawing.PointF,System.Drawing.SizeF)">
+            <summary>
+            Crops a portion of the image.
+            </summary>
+            <param name="Source">The image to be cropped.</param>
+            <param name="CropLocation">The location of the area to crop.</param>
+            <param name="CropSize">The size of the area to crop.</param>
+            <returns>The cropped image.</returns>
+        </member>
+        <member name="M:System.Drawing.ImageExtensions.Crop(System.Drawing.Image,System.Drawing.RectangleF)">
+            <summary>
+            Crops a portion of the image.
+            </summary>
+            <param name="Source">The image to be cropped.</param>
+            <param name="CropArea">The area to crop from the original image.</param>
+            <returns>The cropped image.</returns>
+        </member>
+        <member name="M:System.Drawing.ImageExtensions.SaveJpeg(System.Drawing.Image,System.String)">
+            <summary>
+            Saves the Image object to the specified file, creating it if it does not exist, overwriting it otherwise.
+            </summary>
+            <param name="Source">The Image object to write to disk.</param>
+            <param name="FileName">The absolute or relative path to the file.</param>
+        </member>
+        <member name="M:System.Drawing.ImageExtensions.SaveJpeg(System.Drawing.Image,System.String,System.Int32)">
+            <summary>
+            Saves the Image object to the specified file, creating it if it does not exist, overwriting it otherwise.
+            </summary>
+            <param name="Source">The Image object to write to disk.</param>
+            <param name="FileName">The absolute or relative path to the file.</param>
+            <param name="Quality">The quality of the JPEG, must be between 0 and 100 (inclusive).</param>
+        </member>
+        <member name="M:System.Drawing.ImageExtensions.SaveJpeg(System.Drawing.Image,System.IO.Stream)">
+            <summary>
+            Writes the Image object to the specified System.IO.Stream object.
+            </summary>
+            <param name="Source">The Image object to write.</param>
+            <param name="Output">The stream to write the compressed and encoded image to.</param>
+        </member>
+        <member name="M:System.Drawing.ImageExtensions.SaveJpeg(System.Drawing.Image,System.IO.Stream,System.Int32)">
+            <summary>
+            Writes the Image object to the specified System.IO.Stream object.
+            </summary>
+            <param name="Source">The Image object to write.</param>
+            <param name="Output">The stream to write the compressed and encoded image to.</param>
+            <param name="Quality">The quality of the JPEG, must be between 0 and 100 (inclusive).</param>
+        </member>
+        <member name="M:System.Drawing.ImageExtensions.SetMaxQuality(System.Drawing.Graphics)">
+            <summary>
+            Sets the Graphics object to prouce maximum quality images.
+            </summary>
+            <param name="Gfx">The Graphics object to alter.</param>
+        </member>
+        <member name="T:System.IO.DirectoryInfoExtensions">
+            <summary>
+            Provides extensions methods for the System.IO.DirectoryInfo class.
+            </summary>
+        </member>
+        <member name="M:System.IO.DirectoryInfoExtensions.GetFiles(System.IO.DirectoryInfo,System.Text.RegularExpressions.Regex)">
+            <summary>
+            Gets an array of the files in a specific directory, filtering results against a regular expression.
+            </summary>
+            <param name="iDirectoryInfo">The DirectoryInfo object to pull files from.</param>
+            <param name="RegexFilter">An instance of the System.Text.RegularExpression.Regex class to test file names against.</param>
+            <returns>An array of the FileInfo class validated against the regular expression.</returns>
+        </member>
+        <member name="M:System.IO.DirectoryInfoExtensions.GetFiles(System.IO.DirectoryInfo,System.Text.RegularExpressions.Regex,System.IO.SearchOption)">
+            <summary>
+            Gets an array of the files in a specific directory, filtering results against a regular expression.
+            </summary>
+            <param name="iDirectoryInfo">The DirectoryInfo object to pull files from.</param>
+            <param name="RegexFilter">An instance of the System.Text.RegularExpression.Regex class to test file names against.</param>
+            <param name="iSearchOption">Denotes whether to search the top-level directory only or recursively list files.</param>
+            <returns>An array of the FileInfo class validated against the regular expression.</returns>
+        </member>
+        <member name="M:System.IO.DirectoryInfoExtensions.GetFiles(System.IO.DirectoryInfo,System.Func{System.IO.FileInfo,System.Boolean})">
+            <summary>
+            Gets an array of the files in a specific directory, filtering results against a regular expression.
+            </summary>
+            <param name="iDirectoryInfo">The DirectoryInfo object to pull files from.</param>
+            <param name="FilterCallback">A method that is called to test each file against user-defined standards. This method passes the FileInfo object as it's only argument and should return true if the file meets the criteria, false otherwise.</param>
+            <returns>An array of the FileInfo class validated by the FilterCallback.</returns>
+        </member>
+        <member name="M:System.IO.DirectoryInfoExtensions.GetFiles(System.IO.DirectoryInfo,System.Func{System.IO.FileInfo,System.Boolean},System.IO.SearchOption)">
+            <summary>
+            Gets an array of the files in a specific directory, filtering results against a regular expression.
+            </summary>
+            <param name="iDirectoryInfo">The DirectoryInfo object to pull files from.</param>
+            <param name="FilterCallback">A method that is called to test each file against user-defined standards. This method passes the FileInfo object as it's only argument and should return true if the file meets the criteria, false otherwise.</param>
+            <param name="iSearchOption">Denotes whether to search the top-level directory only or recursively list files.</param>
+            <returns>An array of the FileInfo class validated by the FilterCallback.</returns>
+        </member>
+        <member name="T:System.Reflection.ReflectionExtensions">
+            <summary>
+            Provides extensions for various System.Reflection types.
+            </summary>
+        </member>
+        <member name="M:System.Reflection.ReflectionExtensions.GetCustomAttribute``1(System.Reflection.MemberInfo)">
+            <summary>
+            Gets the first attribute of the specified type from the MemberInfo object.
+            </summary>
+            <typeparam name="T">Any type that inherits from System.Attribute.</typeparam>
+            <param name="iMemberInfo">The MemberInfo object to get the attributes from.</param>
+            <returns>The first attribute of the specified type, or null if one is not found.</returns>
+        </member>
+        <member name="M:System.Reflection.ReflectionExtensions.GetCustomAttribute``1(System.Reflection.MemberInfo,System.Boolean)">
+            <summary>
+            Gets the first attribute of the specified type from the MemberInfo object.
+            </summary>
+            <typeparam name="T">Any type that inherits from System.Attribute.</typeparam>
+            <param name="iMemberInfo">The MemberInfo object to get the attributes from.</param>
+            <param name="Inherit">Specified whether or not to search the inheritence chain to find the attribute.</param>
+            <returns>The first attribute of the specified type, or null if one is not found.</returns>
+        </member>
+        <member name="M:System.Reflection.ReflectionExtensions.GetCustomAttributes``1(System.Reflection.MemberInfo)">
+            <summary>
+            Gets an array of all attributes of the specified type from the MemberInfo object.
+            </summary>
+            <typeparam name="T">Any type that inherits from System.Attribute.</typeparam>
+            <param name="iMemberInfo">The MemberInfo object to get the attributes from.</param>
+            <returns>An array of attributes of the specified type.</returns>
+        </member>
+        <member name="M:System.Reflection.ReflectionExtensions.GetCustomAttributes``1(System.Reflection.MemberInfo,System.Boolean)">
+            <summary>
+            Gets an array of all attributes of the specified type from the MemberInfo object.
+            </summary>
+            <typeparam name="T">Any type that inherits from System.Attribute.</typeparam>
+            <param name="iMemberInfo">The MemberInfo object to get the attributes from.</param>
+            <param name="Inherit">Specified whether or not to search the inheritence chain to find the attribute.</param>
+            <returns>An array of attributes of the specified type.</returns>
+        </member>
+        <member name="M:System.Reflection.ReflectionExtensions.GetCustomAttribute``1(System.Reflection.Assembly)">
+            <summary>
+            Gets the first attribute of the specified type from an Assembly.
+            </summary>
+            <typeparam name="T">Any type that inherits from System.Attribute.</typeparam>
+            <param name="iAssembly">The Assembly object to get the attribute from.</param>
+            <returns>The first attribute of the specified type, or null if none were found.</returns>
+        </member>
+        <member name="M:System.Reflection.ReflectionExtensions.GetCustomAttributes``1(System.Reflection.Assembly)">
+            <summary>
+            Gets an array of attributes of the specified type from an Assembly.
+            </summary>
+            <typeparam name="T">Any type that inherits from System.Attribute.</typeparam>
+            <param name="iAssembly">The Assembly object to get the attributes from.</param>
+            <returns>An array of attributes of the specified type.</returns>
+        </member>
+        <member name="M:System.Reflection.ReflectionExtensions.CreateDelegate``1(System.Reflection.MethodInfo,System.Object)">
+            <summary>
+            Creates a callable delegate from a MethodInfo object.
+            </summary>
+            <typeparam name="T">A System.Delegate.</typeparam>
+            <param name="iMethodInfo">The MethodInfo object to wrap.</param>
+            <param name="Instance">An instance of the object that the delegate is to be called on, only for instance types.</param>
+            <returns>A callable delegate wrapped on the MethodInfo object.</returns>
+        </member>
+        <member name="M:System.Reflection.ReflectionExtensions.CreateDelegate``1(System.Reflection.MethodInfo)">
+            <summary>
+            Creates a callable delegate from a MethodInfo object.
+            </summary>
+            <typeparam name="T">A System.Delegate.</typeparam>
+            <param name="iMethodInfo">The MethodInfo object to wrap.</param>
+            <returns>A callable delegate wrapped on the MethodInfo object.</returns>
+        </member>
+        <member name="M:System.Reflection.ReflectionExtensions.CreateDelegate``1(System.Reflection.MethodInfo,System.Object,System.Boolean)">
+            <summary>
+            Creates a callable delegate from a MethodInfo object.
+            </summary>
+            <typeparam name="T">A System.Delegate.</typeparam>
+            <param name="iMethodInfo">The MethodInfo object to wrap.</param>
+            <param name="Instance">An instance of the object that the delegate is to be called on, only for instance types.</param>
+            <param name="ThrowOnBindFailure">Whether or not to throw an exception if the binding fails.</param>
+            <returns>A callable delegate wrapped on the MethodInfo object.</returns>
+        </member>
+        <member name="M:System.Reflection.ReflectionExtensions.CreateDelegate``1(System.Reflection.MethodInfo,System.Boolean)">
+            <summary>
+            Creates a callable delegate from a MethodInfo object.
+            </summary>
+            <typeparam name="T">A System.Delegate.</typeparam>
+            <param name="iMethodInfo">The MethodInfo object to wrap.</param>
+            <param name="ThrowOnBindFailure">Whether or not to throw an exception if the binding fails.</param>
+            <returns>A callable delegate wrapped on the MethodInfo object.</returns>
+        </member>
+        <member name="T:System.Drawing.Imaging.ImageFormatExtensions">
+            <summary>
+            Provides extensions to the System.Drawing.Imaging.ImageFormat class.
+            </summary>
+        </member>
+        <member name="M:System.Drawing.Imaging.ImageFormatExtensions.GetEncoder(System.Drawing.Imaging.ImageFormat)">
+            <summary>
+            Gets the codec info the specified image format.
+            </summary>
+            <param name="Format">The image format to search.</param>
+            <returns>The codec info for the specified image format, or null if none could be found.</returns>
+        </member>
+        <member name="T:System.IO.FileInfoExtensions">
+            <summary>
+            Provides extension methods for the System.IO.FileInfo class.
+            </summary>
+        </member>
+        <member name="M:System.IO.FileInfoExtensions.GetChecksum(System.IO.FileInfo,System.Security.Cryptography.HashAlgorithm)">
+            <summary>
+            Computes the hash of a file using the specified hash algorithm.
+            </summary>
+            <param name="iFileInfo">The file to hash.</param>
+            <param name="iHashAlgorithm">The HashAlgorithm to use when computing the checksum.</param>
+            <returns>The hexadecimal string representation of the file's checksum.</returns>
+        </member>
+        <member name="M:System.IO.FileInfoExtensions.GetChecksum(System.IO.FileInfo,System.Security.Cryptography.HashAlgorithm,System.Boolean)">
+            <summary>
+            Computes the hash of a file using the specified hash algorithm.
+            </summary>
+            <param name="iFileInfo">The file to hash.</param>
+            <param name="iHashAlgorithm">The HashAlgorithm to use when computing the checksum.</param>
+            <param name="Uppercase">Whether or not to return the hash as an upper-case string.</param>
+            <returns>The hexadecimal string representation of the file's checksum.</returns>
+        </member>
+        <member name="T:System.DateTimeExtensions">
+            <summary>
+            Provides extension methods to the System.DateTime class.
+            </summary>
+        </member>
+        <member name="M:System.DateTimeExtensions.ToUnixTime(System.DateTime)">
+            <summary>
+            Converts a System.DateTime object to a Unix timestamp.
+            </summary>
+            <param name="When">The DateTime object to convert to a Unix timestamp.</param>
+            <returns>The time, in seconds, since the epoch.</returns>
+        </member>
+    </members>
+</doc>

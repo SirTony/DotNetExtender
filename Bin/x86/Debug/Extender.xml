@@ -1,0 +1,162 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Extender</name>
+    </assembly>
+    <members>
+        <member name="T:System.Drawing.ImageExtensions">
+            <summary>
+            Provides extensions methods to the Image class.
+            </summary>
+        </member>
+        <member name="M:System.Drawing.ImageExtensions.IsAnimated(System.Drawing.Image)">
+            <summary>
+            Tests whether or not the image contains multiple frames, only for Motion JPEGs and GIFs.
+            </summary>
+            <param name="Source">The image to be tested.</param>
+            <returns>True if the image is animated, false otherwise.</returns>
+        </member>
+        <member name="M:System.Drawing.ImageExtensions.Scale(System.Drawing.Image,System.Int32,System.Int32)">
+            <summary>
+            Scales the image, maintaining the aspect ratio.
+            </summary>
+            <param name="Source">The image to be scaled.</param>
+            <param name="MaxWidth">The maximum allowable width for the resized image.</param>
+            <param name="MaxHeight">The maximum allowable height for the resized image.</param>
+            <returns>An Image object containing the resized image.</returns>
+        </member>
+        <member name="M:System.Drawing.ImageExtensions.Scale(System.Drawing.Image,System.Single,System.Single)">
+            <summary>
+            Scales the image, maintaining the aspect ratio.
+            </summary>
+            <param name="Source">The image to be scaled.</param>
+            <param name="MaxWidth">The maximum allowable width for the resized image.</param>
+            <param name="MaxHeight">The maximum allowable height for the resized image.</param>
+            <returns>An Image object containing the resized image.</returns>
+        </member>
+        <member name="M:System.Drawing.ImageExtensions.Scale(System.Drawing.Image,System.Int32)">
+            <summary>
+            Scales the image, maintaining the aspect ratio.
+            </summary>
+            <param name="Source">The image to be scaled.</param>
+            <param name="Percent">The percentage by which to scale the image.</param>
+            <returns>An Image object containing the resized image.</returns>
+        </member>
+        <member name="M:System.Drawing.ImageExtensions.Scale(System.Drawing.Image,System.Single)">
+            <summary>
+            Scales the image, maintaining the aspect ratio.
+            </summary>
+            <param name="Source">The image to be scaled.</param>
+            <param name="Ratio">The ratio by which to scale the image.</param>
+            <returns>An Image object containing the resized image.</returns>
+        </member>
+        <member name="M:System.Drawing.ImageExtensions.Resize(System.Drawing.Image,System.Drawing.Size)">
+            <summary>
+            Resizes the image to the specified size, not maintaining aspect ratio.
+            </summary>
+            <param name="Source">The image to be resized.</param>
+            <param name="NewSize">The new size of the image.</param>
+            <returns>The resized image.</returns>
+        </member>
+        <member name="M:System.Drawing.ImageExtensions.Resize(System.Drawing.Image,System.Int32,System.Int32)">
+            <summary>
+            Resizes the image to the specified size, not maintaining aspect ratio.
+            </summary>
+            <param name="Source">The image to be resized.</param>
+            <param name="Width">The new width of the resized image.</param>
+            <param name="Height">The new height of the resized image.</param>
+            <returns>The resized image.</returns>
+        </member>
+        <member name="M:System.Drawing.ImageExtensions.Resize(System.Drawing.Image,System.Drawing.SizeF)">
+            <summary>
+            Resizes the image to the specified size, not maintaining aspect ratio.
+            </summary>
+            <param name="Source">The image to be resized.</param>
+            <param name="NewSize">The new size of the image.</param>
+            <returns>The resized image.</returns>
+        </member>
+        <member name="M:System.Drawing.ImageExtensions.Resize(System.Drawing.Image,System.Single,System.Single)">
+            <summary>
+            Resizes the image to the specified size, not maintaining aspect ratio.
+            </summary>
+            <param name="Source">The image to be resized.</param>
+            <param name="Width">The new width of the resized image.</param>
+            <param name="Height">The new height of the resized image.</param>
+            <returns>The resized image.</returns>
+        </member>
+        <member name="M:System.Drawing.ImageExtensions.Crop(System.Drawing.Image,System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Crops a portion of the image.
+            </summary>
+            <param name="Source">The image to be cropped.</param>
+            <param name="X">The X coordinate to start from.</param>
+            <param name="Y">The Y coordinate to start from.</param>
+            <param name="Width">The width of the cropped area.</param>
+            <param name="Height">The height of the cropped area.</param>
+            <returns>The cropped image.</returns>
+        </member>
+        <member name="M:System.Drawing.ImageExtensions.Crop(System.Drawing.Image,System.Drawing.Point,System.Drawing.Size)">
+            <summary>
+            Crops a portion of the image.
+            </summary>
+            <param name="Source">The image to be cropped.</param>
+            <param name="CropLocation">The location of the area to crop.</param>
+            <param name="CropSize">The size of the area to crop.</param>
+            <returns>The cropped image.</returns>
+        </member>
+        <member name="M:System.Drawing.ImageExtensions.Crop(System.Drawing.Image,System.Drawing.Rectangle)">
+            <summary>
+            Crops a portion of the image.
+            </summary>
+            <param name="Source">The image to be cropped.</param>
+            <param name="CropArea">The area to crop from the original image.</param>
+            <returns>The cropped image.</returns>
+        </member>
+        <member name="M:System.Drawing.ImageExtensions.Crop(System.Drawing.Image,System.Single,System.Single,System.Single,System.Single)">
+            <summary>
+            Crops a portion of the image.
+            </summary>
+            <param name="Source">The image to be cropped.</param>
+            <param name="X">The X coordinate to start from.</param>
+            <param name="Y">The Y coordinate to start from.</param>
+            <param name="Width">The width of the cropped area.</param>
+            <param name="Height">The height of the cropped area.</param>
+            <returns>The cropped image.</returns>
+        </member>
+        <member name="M:System.Drawing.ImageExtensions.Crop(System.Drawing.Image,System.Drawing.PointF,System.Drawing.SizeF)">
+            <summary>
+            Crops a portion of the image.
+            </summary>
+            <param name="Source">The image to be cropped.</param>
+            <param name="CropLocation">The location of the area to crop.</param>
+            <param name="CropSize">The size of the area to crop.</param>
+            <returns>The cropped image.</returns>
+        </member>
+        <member name="M:System.Drawing.ImageExtensions.Crop(System.Drawing.Image,System.Drawing.RectangleF)">
+            <summary>
+            Crops a portion of the image.
+            </summary>
+            <param name="Source">The image to be cropped.</param>
+            <param name="CropArea">The area to crop from the original image.</param>
+            <returns>The cropped image.</returns>
+        </member>
+        <member name="M:System.Drawing.ImageExtensions.SetMaxQuality(System.Drawing.Graphics)">
+            <summary>
+            Sets the Graphics object to prouce maximum quality images.
+            </summary>
+            <param name="Gfx">The Graphics object to alter.</param>
+        </member>
+        <member name="T:System.DateTimeExtensions">
+            <summary>
+            Provides extension methods to the DateTime class.
+            </summary>
+        </member>
+        <member name="M:System.DateTimeExtensions.ToUnixTime(System.DateTime)">
+            <summary>
+            Converts a System.DateTime object to a Unix timestamp.
+            </summary>
+            <param name="When">The DateTime object to convert to a Unix timestamp.</param>
+            <returns>The time, in seconds, since the epoch.</returns>
+        </member>
+    </members>
+</doc>
