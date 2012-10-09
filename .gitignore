@@ -1,0 +1,4 @@
+Extender/bin/*
+Extender/obj/*
+Bin/*
+*.suo

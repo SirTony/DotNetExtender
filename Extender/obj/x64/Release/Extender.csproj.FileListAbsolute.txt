@@ -1,6 +1,0 @@
-C:\Users\Tony\Documents\Visual Studio 2010\Projects\Extender\Bin\x64\Release\Extender.xml
-C:\Users\Tony\Documents\Visual Studio 2010\Projects\Extender\Extender\obj\x64\Release\ResolveAssemblyReference.cache
-C:\Users\Tony\Documents\Visual Studio 2010\Projects\Extender\Bin\x64\Release\DotNetExtender.dll
-C:\Users\Tony\Documents\Visual Studio 2010\Projects\Extender\Bin\x64\Release\DotNetExtender.pdb
-C:\Users\Tony\Documents\Visual Studio 2010\Projects\Extender\Extender\obj\x64\Release\DotNetExtender.dll
-C:\Users\Tony\Documents\Visual Studio 2010\Projects\Extender\Extender\obj\x64\Release\DotNetExtender.pdb
