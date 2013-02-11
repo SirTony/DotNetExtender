@@ -30,7 +30,7 @@
 
             for( int i = 1; i <= Length; ++i )
             {
-                int CharPos = iRandom.Next( 0, Chars.Length - 1 );
+                int CharPos = iRandom.Next( 0, Chars.Length );
                 TempString += Chars[CharPos];
             }
 
