@@ -99,15 +99,17 @@
     <Compile Include="ImageExtensions.cs" />
     <Compile Include="ImageFormatExtensions.cs" />
     <Compile Include="ListExtensions.cs" />
+    <Compile Include="PointExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RandomExtensions.cs" />
     <Compile Include="ReflectionExtensions.cs" />
     <Compile Include="SocketExtensions.cs" />
     <Compile Include="StackExtensions.cs" />
     <Compile Include="StopwatchExtensions.cs" />
-    <Compile Include="StreamExtensions.cs" />
-    <Compile Include="System.Security.Cyptography\AtbashCipher.cs" />
-    <Compile Include="System.Security.Cyptography\Rot13.cs" />
+    <Compile Include="System.Security.Cryptography\AtbashCipher.cs" />
+    <Compile Include="System.Security.Cryptography\CaesarCipher.cs" />
+    <Compile Include="System.Security.Cryptography\CRC32CryptoServiceProvider.cs" />
+    <Compile Include="System.Security.Cryptography\Rot13.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

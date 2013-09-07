@@ -1,4 +1,4 @@
-﻿namespace System.System.Security.Cyptography
+﻿namespace System.System.Security.Cryptography
 {
     public static class Rot13
     {
