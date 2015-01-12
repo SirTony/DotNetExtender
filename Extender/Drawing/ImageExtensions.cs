@@ -26,6 +26,11 @@
             }
         }
 
+        public static PropertyItem GetPropertyItem( this Image source, PropertyTag propertyTag )
+        {
+            return source.GetPropertyItem( (int)propertyTag );
+        }
+
         /// <summary>
         /// Scales the image, maintaining the aspect ratio.
         /// </summary>

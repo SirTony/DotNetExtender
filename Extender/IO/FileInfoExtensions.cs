@@ -18,6 +18,11 @@
             return iFileInfo.GetChecksum( iHashAlgorithm, false );
         }
 
+        public static string GetChecksum<T>( this FileInfo fileInfo ) where T : HashAlgorithm, new()
+        {
+            return fileInfo.GetChecksum( new T() );
+        }
+
         /// <summary>
         /// Computes the hash of a file using the specified hash algorithm.
         /// </summary>
@@ -40,6 +45,11 @@
             }
 
             return HashString;
+        }
+
+        public static string GetChecksum<T>( this FileInfo fileInfo, bool uppercase ) where T : HashAlgorithm, new()
+        {
+            return fileInfo.GetChecksum( new T(), uppercase );
         }
     }
 }

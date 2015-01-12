@@ -22,8 +22,13 @@
 			this.mPolynomial = iPolynomial;
 			this.mSeed = iSeed;
 			this.mHash = iSeed;
-			this.mTable = InitializeTable( iPolynomial );
+            this.Initialize();
 		}
+
+        public override void Initialize()
+        {
+            this.mTable = InitializeTable( DEFAULT_POLYNOMIAL );
+        }
 
 		private static uint[] InitializeTable( uint iPolynomial )
 		{
@@ -82,5 +87,5 @@
 			this.HashValue = array;
 			return array;
 		}
-	}
+    }
 }
