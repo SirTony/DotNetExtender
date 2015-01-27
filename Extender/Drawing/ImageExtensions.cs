@@ -89,7 +89,7 @@
         /// <returns>An Image object containing the resized image.</returns>
         public static Image Scale( this Image Source, int Percent )
         {
-            return Source.Scale( 100.0f - ( ( (float)Percent ) / 100.0f ) );
+            return Source.Scale( ( (float)Percent ) / 100.0f );
         }
 
         /// <summary>
