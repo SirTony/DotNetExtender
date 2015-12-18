@@ -2,34 +2,34 @@
 {
     public static class Rot13
     {
-        public static string Transform( string Input )
+        public static string Transform( string source )
         {
-            char[] Chars = Input.ToCharArray();
-            int Length = Chars.Length;
+            var characters = source.ToCharArray();
+            var length = characters.Length;
 
-            for( int i = 0; i < Length; ++i )
+            for( var i = 0; i < length; ++i )
             {
-                short AsInt = Convert.ToInt16( Chars[ i ] );
+                var ascii = Convert.ToInt16( characters[ i ] );
 
-                if( AsInt >= 'a' && AsInt <= 'z' )
+                if( ascii >= 'a' && ascii <= 'z' )
                 {
-                    if( AsInt > 'm' )
-                        AsInt -= 13;
+                    if( ascii > 'm' )
+                        ascii -= 13;
                     else
-                        AsInt += 13;
+                        ascii += 13;
                 }
-                else if( AsInt >= 'A' && AsInt <= 'Z' )
+                else if( ascii >= 'A' && ascii <= 'Z' )
                 {
-                    if( AsInt > 'M' )
-                        AsInt -= 13;
+                    if( ascii > 'M' )
+                        ascii -= 13;
                     else
-                        AsInt += 13;
+                        ascii += 13;
                 }
 
-                Chars[ i ] = Convert.ToChar( AsInt );
+                characters[i] = Convert.ToChar( ascii );
             }
 
-            return new string( Chars );
+            return new String( characters );
         }
     }
 }

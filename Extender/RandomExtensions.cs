@@ -8,33 +8,33 @@
         /// <summary>
         /// Generates a random string of the specified length using alphanumeric characters.
         /// </summary>
-        /// <param name="iRandom">The random number generator to use.</param>
-        /// <param name="Length">The length of the randomized string.</param>
+        /// <param name="rng">The random number generator to use.</param>
+        /// <param name="length">The length of the randomized string.</param>
         /// <returns>A string of the specified length with random characters.</returns>
-        public static string GenerateString( this Random iRandom, int Length )
+        public static string GenerateString( this Random rng, int length )
         {
-            string Chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890";
-            return iRandom.GenerateString( Length, Chars.ToCharArray() );
+            const string AlphaNumeric = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890";
+            return rng.GenerateString( length, AlphaNumeric.ToCharArray() );
         }
 
         /// <summary>
         /// Generates a random string of the specified length using the specified characters.
         /// </summary>
-        /// <param name="iRandom">The random number generator to use.</param>
-        /// <param name="Length">The length of the randomized string.</param>
-        /// <param name="Chars">The array of characters the random number generator is to pick from.</param>
+        /// <param name="rng">The random number generator to use.</param>
+        /// <param name="length">The length of the randomized string.</param>
+        /// <param name="characters">The array of characters the random number generator is to pick from.</param>
         /// <returns>A string of the specified length with random characters.</returns>
-        public static string GenerateString( this Random iRandom, int Length, char[] Chars )
+        public static string GenerateString( this Random rng, int length, char[] characters )
         {
-            string TempString = "";
+            var result = String.Empty;
 
-            for( int i = 1; i <= Length; ++i )
+            for( var i = 1; i <= length; ++i )
             {
-                int CharPos = iRandom.Next( 0, Chars.Length );
-                TempString += Chars[CharPos];
+                int position = rng.Next( 0, characters.Length );
+                result += characters[position];
             }
 
-            return TempString;
+            return result;
         }
     }
 }

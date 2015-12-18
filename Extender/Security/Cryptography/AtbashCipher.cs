@@ -1,38 +1,40 @@
-﻿namespace System.System.Security.Cryptography
+﻿using System.Collections.ObjectModel;
+
+namespace System.System.Security.Cryptography
 {
     public static class AtbashCipher
     {
-        private static char[] Table;
+        private static readonly ReadOnlyCollection<char> Table;
 
         static AtbashCipher()
         {
-            AtbashCipher.Table = new char[ char.MaxValue ];
+            var table = new char[char.MaxValue];
 
-            for( int i = 0; i < char.MaxValue; ++i )
-                AtbashCipher.Table[ i ] = Convert.ToChar( i );
+            for( var c = char.MinValue; c < char.MaxValue; ++c )
+                table[c] = c;
 
-            for( char c = 'A'; c <= 'Z'; ++c )
-                AtbashCipher.Table[ Convert.ToInt32( c ) ] = Convert.ToChar( 'Z' + 'A' - c );
+            for( var c = 'A'; c <= 'Z'; ++c )
+                table[Convert.ToInt32( c )] = Convert.ToChar( 'Z' + 'A' - c );
 
-            for( char c = 'a'; c <= 'z'; ++c )
-                AtbashCipher.Table[ Convert.ToInt32( c ) ] = Convert.ToChar( 'z' + 'a' - c );
+            for( var c = 'a'; c <= 'z'; ++c )
+                table[Convert.ToInt32( c )] = Convert.ToChar( 'z' + 'a' - c );
         }
 
-        public static string Transform( string Input )
+        public static string Transform( string source )
         {
             try
             {
-                char[] Chars = Input.ToCharArray();
-                int Length = Chars.Length;
+                var characters = source.ToCharArray();
+                var length = characters.Length;
 
-                for( int i = 0; i < Length; ++i )
-                    Chars[ i ] = AtbashCipher.Table[ Convert.ToInt32( Chars[ i ] ) ];
+                for( var i = 0; i < length; ++i )
+                    characters[i] = Table[Convert.ToInt32( characters[i] )];
 
-                return new string( Chars );
+                return new String( characters );
             }
             catch
             {
-                return Input;
+                return source;
             }
         }
     }

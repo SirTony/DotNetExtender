@@ -8,16 +8,15 @@
         /// <summary>
         /// Gets the codec info the specified image format.
         /// </summary>
-        /// <param name="Format">The image format to search.</param>
+        /// <param name="format">The image format to search.</param>
         /// <returns>The codec info for the specified image format, or null if none could be found.</returns>
-        public static ImageCodecInfo GetEncoder( this ImageFormat Format )
+        public static ImageCodecInfo GetEncoder( this ImageFormat format )
         {
-            ImageCodecInfo[] CodecInfos = ImageCodecInfo.GetImageDecoders();
-
-            foreach( ImageCodecInfo CodecInfo in CodecInfos )
+            var codecs = ImageCodecInfo.GetImageDecoders();
+            foreach( var codec in codecs )
             {
-                if( CodecInfo.FormatID == Format.Guid )
-                    return CodecInfo;
+                if( codec.FormatID == format.Guid )
+                    return codec;
             }
 
             return null;

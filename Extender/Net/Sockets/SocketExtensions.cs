@@ -8,13 +8,13 @@
         /// <summary>
         /// Polls the System.Net.Sockets.Socket object to test if the connection is still alive.
         /// </summary>
-        /// <param name="iSocket">The Socket object to poll.</param>
+        /// <param name="socket">The Socket object to poll.</param>
         /// <returns>True if the connection is alive, false otherwise.</returns>
-        public static bool IsConnected( this Socket iSocket )
+        public static bool IsConnected( this Socket socket )
         {
             try
             {
-                return !( iSocket.Poll( 1, SelectMode.SelectRead ) && iSocket.Available == 0 );
+                return !( socket.Poll( 1, SelectMode.SelectRead ) && socket.Available == 0 );
             }
             catch
             {

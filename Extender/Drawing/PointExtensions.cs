@@ -2,15 +2,16 @@
 {
     public static class PointExtensions
     {
-        public static Point RotatePoint( this Point PointToRotate, Point CentrePoint, double AngleInDegrees )
+        public static Point Rotate( this Point point, Point centre, double angle )
         {
-            double Radians = AngleInDegrees * ( Math.PI / 180 );
-            double Cos = Math.Cos( Radians ), Sin = Math.Sin( Radians );
+            var radians = angle * ( Math.PI / 180 );
+            var cos = Math.Cos( radians );
+            var sin = Math.Sin( radians );
 
-            double NewX = Cos * ( PointToRotate.X - CentrePoint.X ) - Sin * ( PointToRotate.Y - CentrePoint.Y ) + CentrePoint.X;
-            double NewY = Sin * ( PointToRotate.X - CentrePoint.X ) + Cos * ( PointToRotate.Y - CentrePoint.Y ) + CentrePoint.Y;
+            var x = cos * ( point.X - centre.X ) - sin * ( point.Y - centre.Y ) + centre.X;
+            var y = sin * ( point.X - centre.X ) + cos * ( point.Y - centre.Y ) + centre.Y;
 
-            return new Point( (int)NewX, (int)NewY );
+            return new Point( (int)x, (int)y );
         }
     }
 }

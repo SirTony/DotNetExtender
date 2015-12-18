@@ -1,7 +1,8 @@
-﻿namespace System.IO
-{
-    using Security.Cryptography;
+﻿using System.Text;
+using System.Security.Cryptography;
 
+namespace System.IO
+{
     /// <summary>
     /// Provides extension methods for the System.IO.FileInfo class.
     /// </summary>
@@ -10,46 +11,40 @@
         /// <summary>
         /// Computes the hash of a file using the specified hash algorithm.
         /// </summary>
-        /// <param name="iFileInfo">The file to hash.</param>
-        /// <param name="iHashAlgorithm">The HashAlgorithm to use when computing the checksum.</param>
+        /// <param name="file">The file to hash.</param>
+        /// <param name="algorithm">The HashAlgorithm to use when computing the checksum.</param>
         /// <returns>The hexadecimal string representation of the file's checksum.</returns>
-        public static string GetChecksum( this FileInfo iFileInfo, HashAlgorithm iHashAlgorithm )
-        {
-            return iFileInfo.GetChecksum( iHashAlgorithm, false );
-        }
+        public static string GetChecksum( this FileInfo file, HashAlgorithm algorithm )
+            => file.GetChecksum( algorithm, false );
 
-        public static string GetChecksum<T>( this FileInfo fileInfo ) where T : HashAlgorithm, new()
-        {
-            return fileInfo.GetChecksum( new T() );
-        }
+        public static string GetChecksum<T>( this FileInfo file ) where T : HashAlgorithm, new()
+            => file.GetChecksum( new T() );
 
         /// <summary>
         /// Computes the hash of a file using the specified hash algorithm.
         /// </summary>
-        /// <param name="iFileInfo">The file to hash.</param>
-        /// <param name="iHashAlgorithm">The HashAlgorithm to use when computing the checksum.</param>
-        /// <param name="Uppercase">Whether or not to return the hash as an upper-case string.</param>
+        /// <param name="file">The file to hash.</param>
+        /// <param name="algorithm">The HashAlgorithm to use when computing the checksum.</param>
+        /// <param name="upper">Whether or not to return the hash as an upper-case string.</param>
         /// <returns>The hexadecimal string representation of the file's checksum.</returns>
-        public static string GetChecksum( this FileInfo iFileInfo, HashAlgorithm iHashAlgorithm, bool Uppercase )
+        public static string GetChecksum( this FileInfo file, HashAlgorithm algorithm, bool upper )
         {
-            string HashString = "";
+            var builder = new StringBuilder();
 
-            using( iHashAlgorithm )
-            using( FileStream iFileStream = File.Open( iFileInfo.FullName, FileMode.Open, FileAccess.Read, FileShare.Read ) )
+            using( algorithm )
+            using( var stream = File.Open( file.FullName, FileMode.Open, FileAccess.Read, FileShare.Read ) )
             {
-                byte[] HashBytes = iHashAlgorithm.ComputeHash( iFileStream );
-                string Format = ( Uppercase ) ? "X2" : "x2";
+                var bytes = algorithm.ComputeHash( stream );
+                var format = upper ? "X2" : "x2";
 
-                foreach( byte HashByte in HashBytes )
-                    HashString += HashByte.ToString( Format );
+                foreach( var @byte in bytes )
+                    builder.Append( @byte.ToString( format ) );
             }
 
-            return HashString;
+            return builder.ToString();
         }
 
-        public static string GetChecksum<T>( this FileInfo fileInfo, bool uppercase ) where T : HashAlgorithm, new()
-        {
-            return fileInfo.GetChecksum( new T(), uppercase );
-        }
+        public static string GetChecksum<T>( this FileInfo file, bool upper ) where T : HashAlgorithm, new()
+            => file.GetChecksum( new T(), upper );
     }
 }

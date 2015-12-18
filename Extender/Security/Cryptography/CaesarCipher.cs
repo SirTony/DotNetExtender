@@ -2,9 +2,9 @@
 {
     public static class CaesarCipher
     {
-        public static string Encode( string value, int shift )
+        public static string Encode( string source, int shift )
         {
-            var chars = value.ToCharArray();
+            var chars = source.ToCharArray();
             var len = chars.Length;
 
             for( var i = 0; i < len; ++i )
@@ -22,9 +22,7 @@
             return new String( chars );
         }
 
-        public static string Decode( string value, int shift )
-        {
-            return CaesarCipher.Encode( value, shift < 0 ? shift : -shift );
-        }
+        public static string Decode( string source, int shift )
+            => Encode( source, shift < 0 ? shift : -shift );
     }
 }

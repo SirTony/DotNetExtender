@@ -2,14 +2,14 @@
 {
     public static class StopwatchExtensions
     {
-        public static double GetElapsedMicroseconds( this Stopwatch iStopwatch )
+        public static double GetElapsedMicroseconds( this Stopwatch stopwatch )
         {
-            return ( iStopwatch.ElapsedTicks / Stopwatch.Frequency ) * 1e6;
+            return ( stopwatch.ElapsedTicks / Stopwatch.Frequency ) * 1e6;
         }
 
-        public static double GetElapsedNanoseconds( this Stopwatch iStopwatch )
+        public static double GetElapsedNanoseconds( this Stopwatch stopwatch )
         {
-            return ( iStopwatch.ElapsedTicks / Stopwatch.Frequency ) * 1e9;
+            return ( stopwatch.ElapsedTicks / Stopwatch.Frequency ) * 1e9;
         }
     }
 }
