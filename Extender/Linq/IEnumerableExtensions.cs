@@ -1,21 +1,30 @@
-﻿namespace System.Linq
-{
-    using Collections.Generic;
+﻿using System.Collections.Generic;
 
+namespace System.Linq
+{
     public static class IEnumerableExtensions
     {
-        public static IEnumerable<string> Chunks( this string source, int chunkSize )
+        public static IEnumerable<string> InChunksOf( this string source, int chunkSize )
         {
-            int len = source.Length;
-            for( int i = 0; i < len; i += chunkSize )
+            var len = source.Length;
+            for( var i = 0; i < len; i += chunkSize )
                 yield return source.Substring( i, Math.Min( chunkSize, len - i ) );
         }
 
-        public static IEnumerable<IEnumerable<T>> Chunks<T>( this IEnumerable<T> enumerable, int chunkSize )
+        public static IEnumerable<IEnumerable<T>> InChunksOf<T>( this IEnumerable<T> enumerable, int chunkSize )
         {
-            int len = enumerable.Count();
-            for( int i = 0; i < len; i += chunkSize )
-                yield return enumerable.Skip( i ).Take( Math.Min( chunkSize, len - i ) );
+            if( enumerable == null )
+                throw new ArgumentNullException( nameof( enumerable ) );
+
+            if( chunkSize < 1 )
+            {
+                throw new ArgumentException( "Chunk size must be a positive integer greater than zero",
+                    nameof( chunkSize ) );
+            }
+
+            return chunkSize == 1
+                ? enumerable.Select( item => new[] { item } )
+                : IEnumerableExtensions.InChunksOfImpl( enumerable, chunkSize );
         }
 
         public static void ForEach<T>( this IEnumerable<T> enumerable, Action<T> callback )
@@ -24,22 +33,55 @@
                 callback( item );
         }
 
-        public static IEnumerable<T> Slice<T>( this IEnumerable<T> enumerable, int start, int end )
+        //public static IEnumerable<T> Slice<T>( this IEnumerable<T> enumerable, int start, int end )
+        //{
+        //    var count = enumerable.Count();
+        //    if( start < 0 ) start += count;
+        //    if( end < 0 ) end += count;
+
+        //    if( start < 0 || start >= count )
+        //        throw new ArgumentOutOfRangeException( nameof( start ) );
+
+        //    if( end < 0 || end >= count )
+        //        throw new ArgumentOutOfRangeException( nameof( end ) );
+
+        //    var min = Math.Min( start, end );
+        //    var max = Math.Max( start, end );
+        //    var indices = Enumerable.Range( min, max - min );
+        //    return ( end < start ? indices.Reverse() : indices ).Select( enumerable.ElementAt );
+        //}
+
+        public static bool None<T>( this IEnumerable<T> enumerable )
+            => !enumerable.Any();
+
+        public static bool None<T>( this IEnumerable<T> enumerable, Func<T, bool> predicate )
+            => !enumerable.Any( predicate );
+
+        public static IEnumerable<T> Reject<T>( this IEnumerable<T> enumerable, Func<T, bool> predicate )
+            => enumerable.Where( x => !predicate( x ) );
+
+        private static IEnumerable<IEnumerable<T>> InChunksOfImpl<T>( IEnumerable<T> enumerable, int chunkSize )
         {
-            var count = enumerable.Count();
-            if( start < 0 ) start += count;
-            if( end < 0 ) end += count;
+            using( var enumerator = enumerable.GetEnumerator() )
+            {
+                while( enumerator.MoveNext() )
+                {
+                    int i;
+                    var buffer = new T[chunkSize];
+                    for( i = 0; i < chunkSize; ++i )
+                    {
+                        buffer[i] = enumerator.Current;
 
-            if( start < 0 || start >= count )
-                throw new ArgumentOutOfRangeException( nameof( start ) );
+                        if( i < chunkSize - 1 && !enumerator.MoveNext() )
+                            break;
+                    }
 
-            if( end < 0 || end >= count )
-                throw new ArgumentOutOfRangeException( nameof( end ) );
+                    if( i < chunkSize - 1 )
+                        Array.Resize( ref buffer, i + 1 );
 
-            var min = Math.Min( start, end );
-            var max = Math.Max( start, end );
-            var indices = Enumerable.Range( min, max - min );
-            return ( end < start ? indices.Reverse() : indices ).Select( enumerable.ElementAt );
+                    yield return buffer;
+                }
+            }
         }
     }
 }
