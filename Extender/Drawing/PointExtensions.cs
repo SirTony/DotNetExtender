@@ -13,5 +13,17 @@
 
             return new Point( (int)x, (int)y );
         }
+
+        public static void Deconstruct( this Point point, out int x, out int y )
+        {
+            x = point.X;
+            y = point.Y;
+        }
+
+        public static void Deconstruct( this PointF point, out float x, out float y )
+        {
+            x = point.X;
+            y = point.Y;
+        }
     }
 }
