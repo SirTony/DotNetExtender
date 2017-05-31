@@ -26,6 +26,12 @@ namespace System.Drawing
             }
         }
 
+        /// <summary>
+        /// Gets a property item from the image's metadata
+        /// </summary>
+        /// <param name="image">The image to read the property from</param>
+        /// <param name="property">The propert to retrieve</param>
+        /// <returns>The property item from the image</returns>
         public static PropertyItem GetPropertyItem( this Image image, PropertyTag property )
             => image.GetPropertyItem( (int)property );
 
@@ -96,7 +102,7 @@ namespace System.Drawing
             var height = image.Height * ratio;
 
             var scaled = new Bitmap( (int)width, (int)height );
-            using( Graphics graphics = Graphics.FromImage( scaled ) )
+            using( var graphics = Graphics.FromImage( scaled ) )
             {
                 graphics.SetMaxQuality();
                 graphics.DrawImage( image, 0, 0, width, height );
@@ -143,7 +149,7 @@ namespace System.Drawing
         public static Image Resize( this Image image, float width, float height )
         {
             var resized = new Bitmap( (int)width, (int)height );
-            using( Graphics graphics = Graphics.FromImage( resized ) )
+            using( var graphics = Graphics.FromImage( resized ) )
             {
                 graphics.SetMaxQuality();
                 graphics.DrawImage( image, 0, 0, width, height );
@@ -259,7 +265,7 @@ namespace System.Drawing
         public static void SaveJpeg( this Image image, Stream stream, int quality )
         {
             if( quality < 0 || quality > 100 )
-                throw new ArgumentOutOfRangeException( "Quality", "Quality must be between 0 and 100, inclusive." );
+                throw new ArgumentOutOfRangeException( nameof(quality), "Quality must be between 0 and 100, inclusive." );
 
             var codec = ImageFormat.Jpeg.GetEncoder();
 
@@ -267,8 +273,10 @@ namespace System.Drawing
                 image.Save( stream, ImageFormat.Jpeg );
             else
             {
-                var @params = new EncoderParameters( 1 );
-                @params.Param[0] = new EncoderParameter( Encoder.Quality, (long)quality );
+                var @params = new EncoderParameters( 1 )
+                {
+                    Param = { [0] = new EncoderParameter( Encoder.Quality, quality ) }
+                };
 
                 image.Save( stream, codec, @params );
             }

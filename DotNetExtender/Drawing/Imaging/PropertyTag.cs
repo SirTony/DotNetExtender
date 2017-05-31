@@ -1,4 +1,7 @@
-﻿namespace System.Drawing.Imaging
+﻿// TODO: add doc comments
+#pragma warning disable 1591
+
+namespace System.Drawing.Imaging
 {
     [Flags]
     public enum PropertyTag : int

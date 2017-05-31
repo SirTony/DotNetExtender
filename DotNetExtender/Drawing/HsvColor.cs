@@ -1,15 +1,24 @@
 ﻿namespace System.Drawing
 {
+    /// <summary>
+    /// Implements a HSV (hue, saturation, value) colour
+    /// </summary>
     public struct HsvColor : IEquatable<HsvColor>, IEquatable<Color>
     {
         private double _h, _s, _v;
 
+        /// <summary>
+        /// The hue of the colour
+        /// </summary>
         public double H
         {
             get => this._h;
             set => this._h = HsvColor.NormalizeDegrees( value );
         }
 
+        /// <summary>
+        /// The saturation of the colour
+        /// </summary>
         public double S
         {
             get => this._s;
@@ -22,6 +31,9 @@
             }
         }
 
+        /// <summary>
+        /// The value of the colour
+        /// </summary>
         public double V
         {
             get => this._v;
@@ -34,6 +46,12 @@
             }
         }
 
+        /// <summary>
+        /// Constructes a new colour from the specified hue, saturation, and value values
+        /// </summary>
+        /// <param name="h">The hue of the colour</param>
+        /// <param name="s">The saturation of the colour</param>
+        /// <param name="v">The value of the colour</param>
         public HsvColor( double h, double s, double v )
         {
             this._h = this._s = this._v = 0;
@@ -43,10 +61,21 @@
             this.V = Math.Round( v, 2 );
         }
 
-        public bool Equals( HsvColor other ) => this._h == other._h && this._s == other._s && this._v == other._v;
+        /// <summary>
+        /// Tests the equality of two HSV colours
+        /// </summary>
+        /// <param name="other">The colour to compare with</param>
+        /// <returns>True if the colours are equal, false or otherwise</returns>
+        public bool Equals( HsvColor other ) => (Color)this == (Color)other;
 
+        /// <summary>
+        /// Tests the equality of this colour against an ARGB colour
+        /// </summary>
+        /// <param name="other">The colour to compare with</param>
+        /// <returns>True if the colours are equal, false or otherwise</returns>
         public bool Equals( Color other ) => (Color)this == other;
 
+        /// <inheritdoc />
         public override bool Equals( object other )
         {
             switch( other )
@@ -57,23 +86,64 @@
             }
         }
 
+        /// <inheritdoc />
         public override int GetHashCode() => ( (Color)this ).GetHashCode();
 
+        /// <inheritdoc />
         public override string ToString() => $"HsvColor [H={this.H}, S={this.S}, V={this.V}]";
 
+        /// <summary>
+        /// Tests the equality of two HSV colours
+        /// </summary>
+        /// <param name="a">The first colour to compare</param>
+        /// <param name="b">The second colour to compare</param>
+        /// <returns>True if the colours are equal, false or otherwise</returns>
         public static bool operator ==( HsvColor a, HsvColor b ) => a.Equals( b );
 
+        /// <summary>
+        /// Tests the inequality of two HSV colours
+        /// </summary>
+        /// <param name="a">The first colour to compare</param>
+        /// <param name="b">The second colour to compare</param>
+        /// <returns>True if the colours are not equal, false or otherwise</returns>
         public static bool operator !=( HsvColor a, HsvColor b )  => !a.Equals( b );
 
+        /// <summary>
+        /// Tests the equality of an HSV colour and an ARGB colour
+        /// </summary>
+        /// <param name="a">The first colour to compare</param>
+        /// <param name="b">The second colour to compare</param>
+        /// <returns>True if the colours are equal, false or otherwise</returns>
         public static bool operator ==( HsvColor a, Color b ) => a.Equals( b );
 
+        /// <summary>
+        /// Tests the inequality of an HSV colour and an ARGB colour
+        /// </summary>
+        /// <param name="a">The first colour to compare</param>
+        /// <param name="b">The second colour to compare</param>
+        /// <returns>True if the colours are not equal, false or otherwise</returns>
         public static bool operator !=( HsvColor a, Color b ) => !a.Equals( b );
 
+        /// <summary>
+        /// Tests the equality of an ARGB colour and an HSV colour
+        /// </summary>
+        /// <param name="a">The first colour to compare</param>
+        /// <param name="b">The second colour to compare</param>
+        /// <returns>True if the colours are equal, false or otherwise</returns>
         public static bool operator ==( Color a, HsvColor b ) => b.Equals( a );
 
+        /// <summary>
+        /// Tests the inequality of an ARGB colour and an HSV colour
+        /// </summary>
+        /// <param name="a">The first colour to compare</param>
+        /// <param name="b">The second colour to compare</param>
+        /// <returns>True if the colours are not equal, false or otherwise</returns>
         public static bool operator !=( Color a, HsvColor b ) => !b.Equals( a );
 
-        // Convert from RGB to HSV
+        /// <summary>
+        /// Converts from an ARGB colour to an HSV colour
+        /// </summary>
+        /// <param name="rgb">The ARGB colour to convert from</param>
         public static implicit operator HsvColor( Color rgb )
         {
             double r = rgb.R / 255d,
@@ -109,7 +179,10 @@
             return new HsvColor( h, s, v );
         }
 
-        // Convert from HSV to RGB
+        /// <summary>
+        /// Convert from HSV colour to ARGB colour
+        /// </summary>
+        /// <param name="self">The HSV colour to convert from</param>
         public static implicit operator Color( HsvColor self )
         {
             if( self._s <= 0.0 )

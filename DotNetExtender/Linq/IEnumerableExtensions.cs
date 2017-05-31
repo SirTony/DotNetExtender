@@ -4,6 +4,9 @@ namespace System.Linq
 {
     public static class IEnumerableExtensions
     {
+        public static string Join<T>( this IEnumerable<T> values, string delimeter = null )
+            => String.Join( delimeter ?? String.Empty, values );
+
         public static IEnumerable<string> InChunksOf( this string source, int chunkSize )
         {
             var len = source.Length;
@@ -32,24 +35,6 @@ namespace System.Linq
             foreach( var item in enumerable )
                 callback( item );
         }
-
-        //public static IEnumerable<T> Slice<T>( this IEnumerable<T> enumerable, int start, int end )
-        //{
-        //    var count = enumerable.Count();
-        //    if( start < 0 ) start += count;
-        //    if( end < 0 ) end += count;
-
-        //    if( start < 0 || start >= count )
-        //        throw new ArgumentOutOfRangeException( nameof( start ) );
-
-        //    if( end < 0 || end >= count )
-        //        throw new ArgumentOutOfRangeException( nameof( end ) );
-
-        //    var min = Math.Min( start, end );
-        //    var max = Math.Max( start, end );
-        //    var indices = Enumerable.Range( min, max - min );
-        //    return ( end < start ? indices.Reverse() : indices ).Select( enumerable.ElementAt );
-        //}
 
         public static bool None<T>( this IEnumerable<T> enumerable )
             => !enumerable.Any();
