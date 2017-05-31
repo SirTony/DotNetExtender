@@ -1,12 +1,12 @@
 ﻿namespace System
 {
     /// <summary>
-    /// Provides a set of extension methods for the System.Random class.
+    ///     Provides a set of extension methods for the System.Random class.
     /// </summary>
     public static class RandomExtensions
     {
         /// <summary>
-        /// Generates a random string of the specified length using alphanumeric characters.
+        ///     Generates a random string of the specified length using alphanumeric characters.
         /// </summary>
         /// <param name="rng">The random number generator to use.</param>
         /// <param name="length">The length of the randomized string.</param>
@@ -18,7 +18,7 @@
         }
 
         /// <summary>
-        /// Generates a random string of the specified length using the specified characters.
+        ///     Generates a random string of the specified length using the specified characters.
         /// </summary>
         /// <param name="rng">The random number generator to use.</param>
         /// <param name="length">The length of the randomized string.</param>
@@ -30,7 +30,7 @@
 
             for( var i = 1; i <= length; ++i )
             {
-                int position = rng.Next( 0, characters.Length );
+                var position = rng.Next( 0, characters.Length );
                 result += characters[position];
             }
 

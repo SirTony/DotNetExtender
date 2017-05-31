@@ -21,7 +21,8 @@ namespace System.Linq
 
             if( chunkSize < 1 )
             {
-                throw new ArgumentException( "Chunk size must be a positive integer greater than zero",
+                throw new ArgumentException(
+                    "Chunk size must be a positive integer greater than zero",
                     nameof( chunkSize ) );
             }
 
@@ -57,7 +58,7 @@ namespace System.Linq
                     {
                         buffer[i] = enumerator.Current;
 
-                        if( i < chunkSize - 1 && !enumerator.MoveNext() )
+                        if( ( i < chunkSize - 1 ) && !enumerator.MoveNext() )
                             break;
                     }
 

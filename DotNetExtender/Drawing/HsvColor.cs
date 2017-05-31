@@ -1,14 +1,14 @@
 ﻿namespace System.Drawing
 {
     /// <summary>
-    /// Implements a HSV (hue, saturation, value) colour
+    ///     Implements a HSV (hue, saturation, value) colour
     /// </summary>
     public struct HsvColor : IEquatable<HsvColor>, IEquatable<Color>
     {
         private double _h, _s, _v;
 
         /// <summary>
-        /// The hue of the colour
+        ///     The hue of the colour
         /// </summary>
         public double H
         {
@@ -17,14 +17,14 @@
         }
 
         /// <summary>
-        /// The saturation of the colour
+        ///     The saturation of the colour
         /// </summary>
         public double S
         {
             get => this._s;
             set
             {
-                if( !( value >= 0.0 && value <= 1.0 ) )
+                if( !( ( value >= 0.0 ) && ( value <= 1.0 ) ) )
                     throw new ArgumentOutOfRangeException( nameof( value ) );
 
                 this._s = Math.Round( value, 2 );
@@ -32,14 +32,14 @@
         }
 
         /// <summary>
-        /// The value of the colour
+        ///     The value of the colour
         /// </summary>
         public double V
         {
             get => this._v;
             set
             {
-                if( !( value >= 0.0 && value <= 1.0 ) )
+                if( !( ( value >= 0.0 ) && ( value <= 1.0 ) ) )
                     throw new ArgumentOutOfRangeException( nameof( value ) );
 
                 this._v = Math.Round( value, 2 );
@@ -47,7 +47,7 @@
         }
 
         /// <summary>
-        /// Constructes a new colour from the specified hue, saturation, and value values
+        ///     Constructes a new colour from the specified hue, saturation, and value values
         /// </summary>
         /// <param name="h">The hue of the colour</param>
         /// <param name="s">The saturation of the colour</param>
@@ -62,14 +62,14 @@
         }
 
         /// <summary>
-        /// Tests the equality of two HSV colours
+        ///     Tests the equality of two HSV colours
         /// </summary>
         /// <param name="other">The colour to compare with</param>
         /// <returns>True if the colours are equal, false or otherwise</returns>
         public bool Equals( HsvColor other ) => (Color)this == (Color)other;
 
         /// <summary>
-        /// Tests the equality of this colour against an ARGB colour
+        ///     Tests the equality of this colour against an ARGB colour
         /// </summary>
         /// <param name="other">The colour to compare with</param>
         /// <returns>True if the colours are equal, false or otherwise</returns>
@@ -93,7 +93,7 @@
         public override string ToString() => $"HsvColor [H={this.H}, S={this.S}, V={this.V}]";
 
         /// <summary>
-        /// Tests the equality of two HSV colours
+        ///     Tests the equality of two HSV colours
         /// </summary>
         /// <param name="a">The first colour to compare</param>
         /// <param name="b">The second colour to compare</param>
@@ -101,15 +101,15 @@
         public static bool operator ==( HsvColor a, HsvColor b ) => a.Equals( b );
 
         /// <summary>
-        /// Tests the inequality of two HSV colours
+        ///     Tests the inequality of two HSV colours
         /// </summary>
         /// <param name="a">The first colour to compare</param>
         /// <param name="b">The second colour to compare</param>
         /// <returns>True if the colours are not equal, false or otherwise</returns>
-        public static bool operator !=( HsvColor a, HsvColor b )  => !a.Equals( b );
+        public static bool operator !=( HsvColor a, HsvColor b ) => !a.Equals( b );
 
         /// <summary>
-        /// Tests the equality of an HSV colour and an ARGB colour
+        ///     Tests the equality of an HSV colour and an ARGB colour
         /// </summary>
         /// <param name="a">The first colour to compare</param>
         /// <param name="b">The second colour to compare</param>
@@ -117,7 +117,7 @@
         public static bool operator ==( HsvColor a, Color b ) => a.Equals( b );
 
         /// <summary>
-        /// Tests the inequality of an HSV colour and an ARGB colour
+        ///     Tests the inequality of an HSV colour and an ARGB colour
         /// </summary>
         /// <param name="a">The first colour to compare</param>
         /// <param name="b">The second colour to compare</param>
@@ -125,7 +125,7 @@
         public static bool operator !=( HsvColor a, Color b ) => !a.Equals( b );
 
         /// <summary>
-        /// Tests the equality of an ARGB colour and an HSV colour
+        ///     Tests the equality of an ARGB colour and an HSV colour
         /// </summary>
         /// <param name="a">The first colour to compare</param>
         /// <param name="b">The second colour to compare</param>
@@ -133,7 +133,7 @@
         public static bool operator ==( Color a, HsvColor b ) => b.Equals( a );
 
         /// <summary>
-        /// Tests the inequality of an ARGB colour and an HSV colour
+        ///     Tests the inequality of an ARGB colour and an HSV colour
         /// </summary>
         /// <param name="a">The first colour to compare</param>
         /// <param name="b">The second colour to compare</param>
@@ -141,7 +141,7 @@
         public static bool operator !=( Color a, HsvColor b ) => !b.Equals( a );
 
         /// <summary>
-        /// Converts from an ARGB colour to an HSV colour
+        ///     Converts from an ARGB colour to an HSV colour
         /// </summary>
         /// <param name="rgb">The ARGB colour to convert from</param>
         public static implicit operator HsvColor( Color rgb )
@@ -180,7 +180,7 @@
         }
 
         /// <summary>
-        /// Convert from HSV colour to ARGB colour
+        ///     Convert from HSV colour to ARGB colour
         /// </summary>
         /// <param name="self">The HSV colour to convert from</param>
         public static implicit operator Color( HsvColor self )
@@ -247,6 +247,8 @@
             return Math.Round( deg < 0 ? deg + 360d : deg, 2 );
         }
 
-        private static double Clamp( double value, double min, double max ) => value > max ? max : ( value < min ? min : value );
+        private static double Clamp( double value, double min, double max ) => value > max
+            ? max
+            : ( value < min ? min : value );
     }
 }

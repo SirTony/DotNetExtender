@@ -1,12 +1,12 @@
 ﻿namespace System.Drawing
 {
     /// <summary>
-    /// Provides a set of extensions for Size objects
+    ///     Provides a set of extensions for Size objects
     /// </summary>
     public static class SizeExtensions
     {
         /// <summary>
-        /// Support's deconstructing the X and Y values using deconstructing assignment from C# 7
+        ///     Support's deconstructing the X and Y values using deconstructing assignment from C# 7
         /// </summary>
         /// <param name="size">The size to deconstruct</param>
         /// <param name="width">The destination of the width property</param>
@@ -18,7 +18,7 @@
         }
 
         /// <summary>
-        /// Support's deconstructing the X and Y values using deconstructing assignment from C# 7
+        ///     Support's deconstructing the X and Y values using deconstructing assignment from C# 7
         /// </summary>
         /// <param name="size">The size to deconstruct</param>
         /// <param name="width">The destination of the width property</param>

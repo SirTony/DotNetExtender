@@ -1,18 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace System.Reflection
+﻿namespace System.Reflection
 {
     /// <summary>
-    /// Provides a set of extensions for PropertyInfo objects.
+    ///     Provides a set of extensions for PropertyInfo objects.
     /// </summary>
     public static class PropertyInfoExtensions
     {
         /// <summary>
-        /// Retreives the property's getter and wraps it in a strongly typed delegate.
+        ///     Retreives the property's getter and wraps it in a strongly typed delegate.
         /// </summary>
         /// <typeparam name="T">The parameter type of the property</typeparam>
         /// <param name="property">The property to wrap</param>
@@ -26,7 +20,7 @@ namespace System.Reflection
             => () => (T)property?.GetGetMethod( nonPublic )?.Invoke( instance, null );
 
         /// <summary>
-        /// Retreives the property's setter and wraps it in a strongly typed delegate.
+        ///     Retreives the property's setter and wraps it in a strongly typed delegate.
         /// </summary>
         /// <typeparam name="T">The parameter type of the property</typeparam>
         /// <param name="property">The property to wrap</param>

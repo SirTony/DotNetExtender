@@ -1,12 +1,12 @@
 ﻿namespace System.Drawing
 {
     /// <summary>
-    /// Provides a set of extensions for Point objects
+    ///     Provides a set of extensions for Point objects
     /// </summary>
     public static class PointExtensions
     {
         /// <summary>
-        /// Rotates the point around a centre point
+        ///     Rotates the point around a centre point
         /// </summary>
         /// <param name="point">The point to rotate</param>
         /// <param name="centre">The centre point to rotate around</param>
@@ -26,7 +26,7 @@
         }
 
         /// <summary>
-        /// Support's deconstructing the X and Y values using deconstructing assignment from C# 7
+        ///     Support's deconstructing the X and Y values using deconstructing assignment from C# 7
         /// </summary>
         /// <param name="point">The point to deconstruct</param>
         /// <param name="x">The destination for the X property</param>
@@ -38,7 +38,7 @@
         }
 
         /// <summary>
-        /// Support's deconstructing the X and Y values using deconstructing assignment from C# 7
+        ///     Support's deconstructing the X and Y values using deconstructing assignment from C# 7
         /// </summary>
         /// <param name="point">The point to deconstruct</param>
         /// <param name="x">The destination for the X property</param>

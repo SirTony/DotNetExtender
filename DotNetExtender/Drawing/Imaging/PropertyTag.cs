@@ -1,10 +1,12 @@
 ﻿// TODO: add doc comments
+
+
 #pragma warning disable 1591
 
 namespace System.Drawing.Imaging
 {
     [Flags]
-    public enum PropertyTag : int
+    public enum PropertyTag
     {
         GpsVer = 0x0000,
         GpsLatitudeRef = 0x0001,
@@ -222,6 +224,6 @@ namespace System.Drawing.Imaging
         ExifSensingMethod = 0xA217,
         ExifFileSource = 0xA300,
         ExifSceneType = 0xA301,
-        ExifCfaPattern = 0xA302,
+        ExifCfaPattern = 0xA302
     }
 }
