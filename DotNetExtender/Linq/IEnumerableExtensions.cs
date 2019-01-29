@@ -23,12 +23,13 @@ namespace System.Linq
             {
                 throw new ArgumentException(
                     "Chunk size must be a positive integer greater than zero",
-                    nameof( chunkSize ) );
+                    nameof( chunkSize )
+                );
             }
 
             return chunkSize == 1
-                ? enumerable.Select( item => new[] { item } )
-                : IEnumerableExtensions.InChunksOfImpl( enumerable, chunkSize );
+                       ? enumerable.Select( item => new[] { item } )
+                       : IEnumerableExtensions.InChunksOfImpl( enumerable, chunkSize );
         }
 
         public static void ForEach<T>( this IEnumerable<T> enumerable, Action<T> callback )
@@ -58,7 +59,7 @@ namespace System.Linq
                     {
                         buffer[i] = enumerator.Current;
 
-                        if( ( i < chunkSize - 1 ) && !enumerator.MoveNext() )
+                        if( i < chunkSize - 1 && !enumerator.MoveNext() )
                             break;
                     }
 

@@ -19,9 +19,7 @@ namespace System.IO
         {
             using( algorithm )
             using( var stream = File.Open( file.FullName, FileMode.Open, FileAccess.Read, FileShare.Read ) )
-            {
                 return algorithm.ComputeHash( stream ).Select( b => b.ToString( upper ? "X2" : "x2" ) ).Join( "" );
-            }
         }
 
         /// <summary>

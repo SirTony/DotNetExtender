@@ -37,7 +37,8 @@ namespace System.IO
         public static IEnumerable<FileInfo> EnumerateFiles(
             this DirectoryInfo directory,
             Regex filter,
-            SearchOption search )
+            SearchOption search
+        )
             => directory.EnumerateFiles( "*", search ).Where( f => filter.IsMatch( f.Name ) );
 
         /// <summary>
@@ -87,7 +88,8 @@ namespace System.IO
         public static IEnumerable<FileInfo> EnumerateFiles(
             this DirectoryInfo directory,
             Func<FileInfo, bool> filter,
-            SearchOption search )
+            SearchOption search
+        )
             => directory.EnumerateFiles( "*", search ).Where( filter );
 
         /// <summary>
@@ -103,7 +105,8 @@ namespace System.IO
         public static FileInfo[] GetFiles(
             this DirectoryInfo directory,
             Func<FileInfo, bool> filter,
-            SearchOption search )
+            SearchOption search
+        )
             => directory.EnumerateFiles( filter, search ).ToArray();
     }
 }

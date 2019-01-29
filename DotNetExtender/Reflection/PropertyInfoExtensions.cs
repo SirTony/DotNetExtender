@@ -16,8 +16,9 @@
         public static Func<T> GetGetMethod<T>(
             this PropertyInfo property,
             object instance = null,
-            bool nonPublic = false )
-            => () => (T)property?.GetGetMethod( nonPublic )?.Invoke( instance, null );
+            bool nonPublic = false
+        )
+            => () => (T) property?.GetGetMethod( nonPublic )?.Invoke( instance, null );
 
         /// <summary>
         ///     Retreives the property's setter and wraps it in a strongly typed delegate.
@@ -30,7 +31,8 @@
         public static Action<T> GetSetMethod<T>(
             this PropertyInfo property,
             object instance = null,
-            bool nonPublic = false )
+            bool nonPublic = false
+        )
             => x => property?.GetSetMethod( nonPublic )?.Invoke( instance, new object[] { x } );
     }
 }

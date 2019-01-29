@@ -16,8 +16,9 @@
         public static T CreateDelegate<T>(
             this MethodInfo method,
             object instance = null,
-            bool throwOnBindFailure = true )
+            bool throwOnBindFailure = true
+        )
             where T : class
-            => (T)(object)Delegate.CreateDelegate( typeof( T ), instance, method, throwOnBindFailure );
+            => (T) (object) Delegate.CreateDelegate( typeof( T ), instance, method, throwOnBindFailure );
     }
 }

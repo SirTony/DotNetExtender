@@ -13,7 +13,9 @@ namespace System.Drawing.Imaging
         /// <param name="format">The image format to search.</param>
         /// <returns>The codec info for the specified image format, or null if none could be found.</returns>
         public static ImageCodecInfo GetEncoder( this ImageFormat format ) => ImageCodecInfo
-                .GetImageDecoders()
-                .FirstOrDefault( codec => codec.FormatID == format.Guid );
+                                                                             .GetImageDecoders()
+                                                                             .FirstOrDefault(
+                                                                                  codec => codec.FormatID == format.Guid
+                                                                              );
     }
 }

@@ -32,7 +32,8 @@
             out float x,
             out float y,
             out float width,
-            out float height )
+            out float height
+        )
         {
             ( x, y ) = rect.Location;
             ( width, height ) = rect.Size;

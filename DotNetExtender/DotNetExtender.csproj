@@ -10,7 +10,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>System</RootNamespace>
     <AssemblyName>DotNetExtender</AssemblyName>
-    <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
   </PropertyGroup>
@@ -126,6 +126,7 @@
   <ItemGroup>
     <Compile Include="Collections\Generic\DictionaryExtensions.cs" />
     <Compile Include="Collections\Generic\KeyValuePairExtensions.cs" />
+    <Compile Include="ConsoleStyle.cs" />
     <Compile Include="Drawing\HsvColor.cs" />
     <Compile Include="Drawing\Imaging\PropertyTag.cs" />
     <Compile Include="Drawing\RectangleExtensions.cs" />

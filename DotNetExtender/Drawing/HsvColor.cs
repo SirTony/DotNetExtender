@@ -24,7 +24,7 @@
             get => this._s;
             set
             {
-                if( !( ( value >= 0.0 ) && ( value <= 1.0 ) ) )
+                if( !( value >= 0.0 && value <= 1.0 ) )
                     throw new ArgumentOutOfRangeException( nameof( value ) );
 
                 this._s = Math.Round( value, 2 );
@@ -39,7 +39,7 @@
             get => this._v;
             set
             {
-                if( !( ( value >= 0.0 ) && ( value <= 1.0 ) ) )
+                if( !( value >= 0.0 && value <= 1.0 ) )
                     throw new ArgumentOutOfRangeException( nameof( value ) );
 
                 this._v = Math.Round( value, 2 );
@@ -66,14 +66,14 @@
         /// </summary>
         /// <param name="other">The colour to compare with</param>
         /// <returns>True if the colours are equal, false or otherwise</returns>
-        public bool Equals( HsvColor other ) => (Color)this == (Color)other;
+        public bool Equals( HsvColor other ) => (Color) this == (Color) other;
 
         /// <summary>
         ///     Tests the equality of this colour against an ARGB colour
         /// </summary>
         /// <param name="other">The colour to compare with</param>
         /// <returns>True if the colours are equal, false or otherwise</returns>
-        public bool Equals( Color other ) => (Color)this == other;
+        public bool Equals( Color other ) => (Color) this == other;
 
         /// <inheritdoc />
         public override bool Equals( object other )
@@ -87,7 +87,7 @@
         }
 
         /// <inheritdoc />
-        public override int GetHashCode() => ( (Color)this ).GetHashCode();
+        public override int GetHashCode() => ( (Color) this ).GetHashCode();
 
         /// <inheritdoc />
         public override string ToString() => $"HsvColor [H={this.H}, S={this.S}, V={this.V}]";
@@ -187,13 +187,13 @@
         {
             if( self._s <= 0.0 )
             {
-                var c = (byte)( self._v * 255 );
+                var c = (byte) ( self._v * 255 );
                 return Color.FromArgb( 255, c, c, c );
             }
 
             double r, g, b;
             var hh = HsvColor.Clamp( self.H, 0.0, 360.0 ) / 60d;
-            var i = (long)hh;
+            var i = (long) hh;
             var ff = hh - i;
             var p = self._v * ( 1.0 - self._s );
             var q = self._v * ( 1.0 - self._s * ff );
@@ -238,7 +238,7 @@
                     break;
             }
 
-            return Color.FromArgb( 255, (byte)( r * 255 ), (byte)( g * 255 ), (byte)( b * 255 ) );
+            return Color.FromArgb( 255, (byte) ( r * 255 ), (byte) ( g * 255 ), (byte) ( b * 255 ) );
         }
 
         private static double NormalizeDegrees( double deg )
@@ -248,7 +248,9 @@
         }
 
         private static double Clamp( double value, double min, double max ) => value > max
-            ? max
-            : ( value < min ? min : value );
+                                                                                   ? max
+                                                                                   : value < min
+                                                                                       ? min
+                                                                                       : value;
     }
 }

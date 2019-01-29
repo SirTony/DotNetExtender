@@ -20,8 +20,8 @@
 
             return new Point
             {
-                X = (int)( cos * ( point.X - centre.X ) - sin * ( point.Y - centre.Y ) + centre.X ),
-                Y = (int)( sin * ( point.X - centre.X ) + cos * ( point.Y - centre.Y ) + centre.Y )
+                X = (int) ( cos * ( point.X - centre.X ) - sin * ( point.Y - centre.Y ) + centre.X ),
+                Y = (int) ( sin * ( point.X - centre.X ) + cos * ( point.Y - centre.Y ) + centre.Y )
             };
         }
 

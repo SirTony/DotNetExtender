@@ -7,9 +7,9 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle( "DotNetExtender" )]
 [assembly: AssemblyDescription( "A collection of .NET extension methods." )]
 [assembly: AssemblyConfiguration( "" )]
-[assembly: AssemblyCompany( "" )]
+[assembly: AssemblyCompany( "Tony J. Ellis" )]
 [assembly: AssemblyProduct( "DotNetExtender" )]
-[assembly: AssemblyCopyright( "Copyright © Tony J. Ellis 2015" )]
+[assembly: AssemblyCopyright( "Copyright © Tony J. Ellis 2019" )]
 [assembly: AssemblyTrademark( "" )]
 [assembly: AssemblyCulture( "" )]
 

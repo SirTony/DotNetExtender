@@ -33,7 +33,7 @@ namespace System.Drawing
         /// <param name="property">The propert to retrieve</param>
         /// <returns>The property item from the image</returns>
         public static PropertyItem GetPropertyItem( this Image image, PropertyTag property )
-            => image.GetPropertyItem( (int)property );
+            => image.GetPropertyItem( (int) property );
 
         /// <summary>
         ///     Scales the image, maintaining the aspect ratio.
@@ -61,7 +61,7 @@ namespace System.Drawing
         /// <param name="height">The maximum allowable height for the resized image.</param>
         /// <returns>An Image object containing the resized image.</returns>
         public static Image Scale( this Image image, int width, int height )
-            => image.Scale( width, (float)height );
+            => image.Scale( width, (float) height );
 
         /// <summary>
         ///     Scales the image, maintaining the aspect ratio.
@@ -98,7 +98,7 @@ namespace System.Drawing
             var width = image.Width * ratio;
             var height = image.Height * ratio;
 
-            var scaled = new Bitmap( (int)width, (int)height );
+            var scaled = new Bitmap( (int) width, (int) height );
             using( var graphics = Graphics.FromImage( scaled ) )
             {
                 graphics.SetMaxQuality();
@@ -125,7 +125,7 @@ namespace System.Drawing
         /// <param name="height">The new height of the resized image.</param>
         /// <returns>The resized image.</returns>
         public static Image Resize( this Image image, int width, int height )
-            => image.Resize( width, (float)height );
+            => image.Resize( width, (float) height );
 
         /// <summary>
         ///     Resizes the image to the specified size, not maintaining aspect ratio.
@@ -145,7 +145,7 @@ namespace System.Drawing
         /// <returns>The resized image.</returns>
         public static Image Resize( this Image image, float width, float height )
         {
-            var resized = new Bitmap( (int)width, (int)height );
+            var resized = new Bitmap( (int) width, (int) height );
             using( var graphics = Graphics.FromImage( resized ) )
             {
                 graphics.SetMaxQuality();
@@ -216,7 +216,7 @@ namespace System.Drawing
         /// <returns>The cropped image.</returns>
         public static Image Crop( this Image image, RectangleF rectangle )
         {
-            var cropped = new Bitmap( (int)rectangle.Width, (int)rectangle.Height );
+            var cropped = new Bitmap( (int) rectangle.Width, (int) rectangle.Height );
             using( var graphics = Graphics.FromImage( cropped ) )
             {
                 graphics.SetMaxQuality();
@@ -261,10 +261,13 @@ namespace System.Drawing
         /// <param name="quality">The quality of the JPEG, must be between 0 and 100 (inclusive).</param>
         public static void SaveJpeg( this Image image, Stream stream, int quality )
         {
-            if( ( quality < 0 ) || ( quality > 100 ) )
+            if( quality < 0 || quality > 100 )
+            {
                 throw new ArgumentOutOfRangeException(
                     nameof( quality ),
-                    "Quality must be between 0 and 100, inclusive." );
+                    "Quality must be between 0 and 100, inclusive."
+                );
+            }
 
             var codec = ImageFormat.Jpeg.GetEncoder();
 
