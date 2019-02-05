@@ -73,24 +73,24 @@
             return flip ? ~crc : crc;
         }
 
-        private byte[] GetBigEndianBytes( uint value )
+        private static byte[] GetBigEndianBytes( uint value )
             => new[]
             {
                 (byte) ( ( value >> 24 ) & 0xFF ), (byte) ( ( value >> 16 ) & 0xFF ),
                 (byte) ( ( value >> 8 ) & 0xFF ), (byte) ( value & 0xFF )
             };
 
-        protected override void HashCore( byte[] array, int start, int size )
+        protected override void HashCore( byte[] array, int ibStart, int cbSize )
             => this.hash = CRC32CryptoServiceProvider.CalculateHash(
                    array,
-                   start,
-                   size,
+                   ibStart,
+                   cbSize,
                    CRC32CryptoServiceProvider.DefaultSeed,
                    this.table,
                    false
                );
 
         protected override byte[] HashFinal()
-            => this.HashValue = this.GetBigEndianBytes( ~this.hash );
+            => this.HashValue = CRC32CryptoServiceProvider.GetBigEndianBytes( ~this.hash );
     }
 }
